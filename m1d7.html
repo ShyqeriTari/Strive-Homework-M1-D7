@@ -74,7 +74,6 @@ color: blue;
 }
 
 h3 {
-
     color: red;
 }
 
@@ -94,11 +93,18 @@ color: white;
 text-align: center;
 }
 
-.pageBackgroundColor{
+body{
 background-color: rgb(161, 206, 243);
 
 }
 
+.text-align {
+    text-align: center;
+}
+
+.toggle {
+    display: none;
+}
 
 </style>
 
@@ -106,17 +112,16 @@ background-color: rgb(161, 206, 243);
     </head>
 
 
-<body>
-<div class="pageBackgroundColor" >
-<center><h1 >Shyqeri's shop</h1></center>
+<body onclick="changeBackground()">
+<center><h1 onclick="changeName()">Shyqeri's shop</h1></center>
 
 
 
-<table><a class="table" href="https://www.amazon.it/Pallone-Calcio-Juventus-Prodotto-Ufficiale/dp/B07C1RWDQC/ref=sr_1_2?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1LNR818VY9W1N&keywords=palla+juventus&qid=1638886375&sprefix=palla+ju%2Caps%2C197&sr=8-2">
+<table>
+    <center><h2 onclick="addClassToImg()">Juventus ball</h2>
 
-    <center><h2>Juventus ball</h2>
-
-        <div class="image-container1" ></div>
+        <div class="image-container1" ><a class="table" href="https://www.amazon.it/Pallone-Calcio-Juventus-Prodotto-Ufficiale/dp/B07C1RWDQC/ref=sr_1_2?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1LNR818VY9W1N&keywords=palla+juventus&qid=1638886375&sprefix=palla+ju%2Caps%2C197&sr=8-2">
+        </div>
 
         <p> Size 5/410 g - Official product - White / black color - 13640
 
@@ -180,11 +185,65 @@ background-color: rgb(161, 206, 243);
     <hr class="style11">
   
 
-<footer> Shyqeri Tari's shop </footer>
-
-</div>
+<footer onclick="changeFooterText()"> Shyqeri Tari's shop - Via Baiardi 14</footer>
 
 <script>
+
+function changeName() {
+
+    let title = document.querySelector("h1")
+    title.innerText = "I changed"
+}
+
+function changeBackground() {
+
+let body = document.querySelector("body")
+body.style = "background-color: green"
+
+}
+
+function changeFooterText() {
+
+    let footer = document.querySelector("footer")
+    footer.innerText = "Shyqeri Tari's shop - Via Marabba 50"
+}
+
+function addClassToLinks() {
+
+    let links = document.querySelectorAll("a")
+    for(let i=0; i < links.length; i++) {
+    links[i].classList.add("text-align") 
+    }
+}
+
+addClassToLinks()
+
+function addClassToImg() {
+
+    let images = document.querySelectorAll("div ")
+    for(let i = 0; i < images.length; i++) {
+
+        images[i].classList.toggle("toggle")
+    }
+
+}
+
+function getRandomColor() {
+      const red = Math.round(Math.random() * 255);
+      const green = Math.round(Math.random() * 255);
+      const blue = Math.round(Math.random() * 255);
+
+      return "rgb(" + red + ", " + green + ", " + blue + ")";
+    };
+
+    function setRandomColor() {
+      const randomColor = getRandomColor();
+      let prices = document.querySelectorAll("h3")
+      for(let i = 0; i<prices.length; i++) {
+        prices[i].style.color = randomColor
+      }
+    }
+      setRandomColor()
 
 </script>
 
